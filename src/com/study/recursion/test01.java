@@ -1,0 +1,7 @@
+package com.study.recursion;
+
+public class test01 {
+	public static void main(String[] args) {
+		System.out.println(8%22);
+	}
+}

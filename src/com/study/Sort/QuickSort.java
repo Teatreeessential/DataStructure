@@ -2,7 +2,7 @@ package com.study.Sort;
 
 public class QuickSort {
 	public static void main(String[] args) {
-		int []arr = {3,9,4,7,5,0,1,6,8,2};
+		int []arr = {2,1};
 		QuickSort q = new QuickSort();
 		q.quicksort(arr);
 		for(int i:arr) {
