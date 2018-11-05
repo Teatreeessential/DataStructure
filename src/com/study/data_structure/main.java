@@ -1,28 +1,49 @@
 package com.study.data_structure;
 
-public class main {
 
-	public static void main(String[] args) {
-		BinaryTree tree = new BinaryTree();
-		Node<Integer> root = new Node(0);
-		Node<Integer> node1 = new Node(1);
-		Node<Integer> node2 = new Node(2);
-		Node<Integer> node3 = new Node(3);
-		Node<Integer> node4 = new Node(4);
-		Node<Integer> node5 = new Node(5);
-				
-		
-		tree.makeleftsubtree(root, node1);
-		tree.makerightsubtree(root, node2);
-		tree.makeleftsubtree(node1, node3);
-		tree.makerightsubtree(node1, node4);
-		tree.makeleftsubtree(node2, node5);
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class main {
+	enum type{
+		A,B,C,D
+	}
 	
+	public static void main(String[] args) {
 		
-		ExpressionTree exp = new ExpressionTree();
-		exp.make_expression_tree("12+7*");
-		exp.inerordershow();
-		System.out.println(exp.evaluate_exp_tree(exp.node));
+		Scanner sc = new Scanner(System.in);
+		System.out.println("정점의 갯수를 입력하시오");
+		int n = sc.nextInt();
+		System.out.println("간선의 갯수를 입력하시오");
+		int m = sc.nextInt();
+		
+		ArrayList<ArrayList<Graph>> list = new ArrayList<>();
+		
+		for(int i=0;i<n;i++) {
+			list.add(new ArrayList<Graph>());
+		}
+		for(int i=0;i<m;i++) {
+			System.out.print("해당 간선의 출발지점?");
+			int start = sc.nextInt();
+			System.out.print("해당 간선의 끝 지점?");
+			int end = sc.nextInt();
+			System.out.print("해당 간선의 가중치?");
+			int weight = sc.nextInt();
+			
+			Graph gp1 = new Graph(weight, end);
+			list.get(start).add(gp1);
+			Graph gp2 = new Graph(weight, start);
+			list.get(end).add(gp2);
+			
+		}
+		for(int i=0;i<list.size();i++) {
+			for(Graph g:list.get(i)) {
+				System.out.println(i+"-"+g.end+"weigh는"+g.weight);
+			}
+		}
+		
+		
+		
 
 	}
 	
